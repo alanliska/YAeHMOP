@@ -1,0 +1,1 @@
+export HOME=/data/data/cz.jh.yaehmop/files ; cd $HOME ; cp Input-yaehmop.txt Input.txt ; sed -i -e "/>>>XYZ<<</{r Input-yaehmop.xyz" -e "d}" Input.txt ; bind Input.txt ./database/yaehmop/eht_parms.dat ; cat Input.txt.out 

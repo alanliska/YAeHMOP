@@ -1,0 +1,9 @@
+; the title
+pyridine
+; it's a molecular calculation, tell the program that
+molecular
+; Cartesian coordinates in Angstroms
+geometry
+>>>XYZ<<<
+charge
+0
