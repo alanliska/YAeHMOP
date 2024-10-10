@@ -31,6 +31,7 @@ public class ManualYaehmop extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.manualyaehmop);
 
         PdfView pdfView = findViewById(R.id.pdfView);
