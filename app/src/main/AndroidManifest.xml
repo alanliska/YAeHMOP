@@ -38,12 +38,11 @@
         <activity android:name="cz.jh.yaehmop.PrivacyPolicy" />
         <activity android:name="cz.jh.yaehmop.ShellTools" />
         <activity android:name="cz.jh.yaehmop.ChangeSize" />
-        <activity android:name="cz.jh.yaehmop.Canvas3d_main" />
-        <activity android:name="cz.jh.yaehmop.Canvas3d_CanvasView"
-            tools:ignore="Instantiatable" />
-        <activity android:name="cz.jh.yaehmop.Canvas3d_ColorTest" />
-        <activity android:name="cz.jh.yaehmop.Canvas3d_PerTable" />
-        <activity android:name="cz.jh.yaehmop.Canvas3d_Preferences" />
+        <activity android:name="cz.jh.yaehmop.MolCanvas_main" />
+        <activity android:name="cz.jh.yaehmop.MolCanvas_colorPicker" />
+        <activity android:name="cz.jh.yaehmop.MolCanvas_periodicTable" />
+        <activity android:name="cz.jh.yaehmop.MolCanvas_settings" />
+        <activity android:name="cz.jh.yaehmop.MolCanvas_preferences" />
     </application>
 
 </manifest>

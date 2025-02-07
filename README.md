@@ -16,7 +16,7 @@ Compilation of the source code for Android as well as the Android app developmen
 Website: http://www.jh-inst.cas.cz/~liska/MobileChemistry.htm
 
 List of used third-party software:
-ACPDFVIEW, ANDROID SHELL, BLAS, GRAPHVIEW, LAPACK, OPENBABEL, OPSIN, X11-BASIC, YAEHMOP.  
+ACPDFVIEW, ANDROID SHELL, BLAS, GRAPHVIEW, LAPACK, MOLCANVAS, OPENBABEL, OPSIN, X11-BASIC, YAEHMOP.  
 
 More info on licenses & references - please refer to the licensing information inside of the app.
 
@@ -46,6 +46,11 @@ Licenses and references to used third-party software:
  * LAPACK
  Source code: https://netlib.org/lapack/
  License: freely-available software package, modified BSD license
+ 
+  * MOLCANVAS
+ Authors: Alan Liska, Veronika Ruzickova (J. Heyrovsky Institute of Physical Chemistry of the CAS)
+ Source code: https://github.com/alanliska/MolCanvas
+ License: MIT
 
  * OPENBABEL
  Ref.: N M O'Boyle, M Banck, C A James, C Morley, T Vandermeersch, and G R Hutchison. "Open Babel: An open chemical toolbox." J. Cheminf. (2011), 3, 33. DOI:10.1186/1758-2946-3-33
