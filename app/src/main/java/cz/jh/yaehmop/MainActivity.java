@@ -603,76 +603,76 @@ public class MainActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         String XYZfile = exec("cat "+getFilesDir()+"/Input-yaehmop.xyz");
-                        try {
-                            while (XYZfile.contains("\t")){  //2 spaces
-                                XYZfile = XYZfile.replace("\t", " "); //(2 spaces, 1 space)
-                            }
-                            while (XYZfile.contains("  ")){  //2 spaces
-                                XYZfile = XYZfile.replace("  ", " "); //(2 spaces, 1 space)
-                            }
-                            while (XYZfile.contains("\n ")){  //2 spaces
-                                XYZfile = XYZfile.replace("\n ", "\n"); //(2 spaces, 1 space)
-                            }
+                try {
+                    while (XYZfile.contains("\t")){  //2 spaces
+                        XYZfile = XYZfile.replace("\t", " "); //(2 spaces, 1 space)
+                    }
+                    while (XYZfile.contains("  ")){  //2 spaces
+                        XYZfile = XYZfile.replace("  ", " "); //(2 spaces, 1 space)
+                    }
+                    while (XYZfile.contains("\n ")){  //2 spaces
+                        XYZfile = XYZfile.replace("\n ", "\n"); //(2 spaces, 1 space)
+                    }
 
-                            // remove first two lines
-                            // XYZfile = XYZfile.substring(XYZfile.indexOf(System.getProperty("line.separator")) + 2);
-                            // remove first line
-                            XYZfile = XYZfile.substring(XYZfile.indexOf(System.getProperty("line.separator"))+1);
-                            // remove second line
-                            XYZfile = XYZfile.substring(XYZfile.indexOf(System.getProperty("line.separator"))+1);
-                            MolCanvas_canvasView.zmat.clear();
-                            int lineNum = 0;
-                            String[] curLine = XYZfile.split("\\n");
-                            for (String s : curLine) {
-                                lineNum++;
-                                String[] splitted = s.split("\\s");
-                                String atom = splitted[0].trim();
-                                String x_coord_str = splitted[1].trim();
-                                String y_coord_str = splitted[2].trim();
-                                String z_coord_str = splitted[3].trim();
-                                float x_coord = Float.valueOf(x_coord_str);
-                                float y_coord = Float.valueOf(y_coord_str);
-                                float z_coord = Float.valueOf(z_coord_str);
-                                // important: border color is at first run black, there is no other set yet (in MolCanvas_main nor MolCanvas_periodicTable)
-                                MolCanvas_canvasView.zmat.add(new MolCanvas_object(lineNum, atom, MolCanvas_methods.getElementColor(atom),
-                                        Color.BLACK, MolCanvas_methods.getElementRadius(atom),
-                                        MolCanvas_methods.Radius_pix(MolCanvas_methods.getElementRadius(atom),
-                                                MolCanvas_preferences.get().getValue("conv"),
-                                                MolCanvas_preferences.get().getValue("radius_scale"), MolCanvas_main.zoom_scale, z_coord),
-                                        0, x_coord, y_coord, z_coord,
-                                        MolCanvas_methods.AtomX_pix(x_coord, MolCanvas_preferences.get().getValue("conv"), MolCanvas_canvasView.width_pix,
-                                                MolCanvas_main.zoom_scale),
-                                        MolCanvas_methods.AtomY_pix(y_coord, MolCanvas_preferences.get().getValue("conv"),
-                                                MolCanvas_canvasView.height_pix, MolCanvas_main.zoom_scale),
-                                        0, "", MolCanvas_methods.getElementTextColor(atom), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-                                        z_coord, 0.0f, 0.0f, 0.0f, 1));
-                            }
-                            for (MolCanvas_object object : MolCanvas_canvasView.zmat) {
-                                if (object.getObjectType() == 1) {
-                                    MolCanvas_main.generatedLabels.add(new MolCanvas_object(object.getAtomNumber1(), object.getAtomSymbol1(),
-                                            MolCanvas_methods.getElementTextColor(object.getAtomSymbol1()),
-                                            object.getAtomBorderColor1(), 0,
-                                            MolCanvas_methods.Text_pix(MolCanvas_preferences.get().getValue("text_size"), MolCanvas_main.zoom_scale,
-                                                    object.getAtom1Z_Ang()),
-                                            object.getTouchTime(), object.getAtom1X_Ang(), object.getAtom1Y_Ang(),
-                                            object.getAtom1Z_Ang(),
-                                            object.getAtom1X_pix() + MolCanvas_preferences.get().getValue("text_shift_x_pix"),
-                                            object.getAtom1Y_pix() + MolCanvas_preferences.get().getValue("text_shift_y_pix"), 0, "",
-                                            0, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-                                            object.getAtom12Z_Ang() + MolCanvas_preferences.get().getValue("text_shift_z_Ang"), 0.0f,
-                                            0.0f, object.getDist2D_pix(), 4));
-                                }
-                            }
-                            MolCanvas_canvasView.zmat.addAll(MolCanvas_main.generatedLabels);
-                            MolCanvas_main.generatedLabels.clear();
-                            MolCanvas_main.generateAllBonds();
-                            MolCanvas_canvasView.zmat.sort(Comparator.comparing(a -> a.getAtom12Z_Ang()));
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                    // remove first two lines
+                    // XYZfile = XYZfile.substring(XYZfile.indexOf(System.getProperty("line.separator")) + 2);
+                    // remove first line
+                    XYZfile = XYZfile.substring(XYZfile.indexOf(System.getProperty("line.separator"))+1);
+                    // remove second line
+                    XYZfile = XYZfile.substring(XYZfile.indexOf(System.getProperty("line.separator"))+1);
+                    MolCanvas_canvasView.zmat.clear();
+                    int lineNum = 0;
+                    String[] curLine = XYZfile.split("\\n");
+                    for (String s : curLine) {
+                        lineNum++;
+                        String[] splitted = s.split("\\s");
+                        String atom = splitted[0].trim();
+                        String x_coord_str = splitted[1].trim();
+                        String y_coord_str = splitted[2].trim();
+                        String z_coord_str = splitted[3].trim();
+                        float x_coord = Float.valueOf(x_coord_str);
+                        float y_coord = Float.valueOf(y_coord_str);
+                        float z_coord = Float.valueOf(z_coord_str);
+                        // important: border color is at first run black, there is no other set yet (in MolCanvas_main nor MolCanvas_periodicTable)
+                        MolCanvas_canvasView.zmat.add(new MolCanvas_object(lineNum, atom, MolCanvas_methods.getElementColor(atom),
+                                Color.BLACK, MolCanvas_methods.getElementRadius(atom),
+                                MolCanvas_methods.Radius_pix(MolCanvas_methods.getElementRadius(atom),
+                                        MolCanvas_preferences.get().getValue("conv"),
+                                        MolCanvas_preferences.get().getValue("radius_scale"), MolCanvas_main.zoom_scale, z_coord),
+                                0, x_coord, y_coord, z_coord,
+                                MolCanvas_methods.AtomX_pix(x_coord, MolCanvas_preferences.get().getValue("conv"), MolCanvas_canvasView.width_pix,
+                                        MolCanvas_main.zoom_scale),
+                                MolCanvas_methods.AtomY_pix(y_coord, MolCanvas_preferences.get().getValue("conv"),
+                                        MolCanvas_canvasView.height_pix, MolCanvas_main.zoom_scale),
+                                0, "", MolCanvas_methods.getElementTextColor(atom), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+                                z_coord, 0.0f, 0.0f, 0.0f, 1));
+                    }
+                    for (MolCanvas_object object : MolCanvas_canvasView.zmat) {
+                        if (object.getObjectType() == 1) {
+                            MolCanvas_main.generatedLabels.add(new MolCanvas_object(object.getAtomNumber1(), object.getAtomSymbol1(),
+                                    MolCanvas_methods.getElementTextColor(object.getAtomSymbol1()),
+                                    object.getAtomBorderColor1(), 0,
+                                    MolCanvas_methods.Text_pix(MolCanvas_preferences.get().getValue("text_size"), MolCanvas_main.zoom_scale,
+                                            object.getAtom1Z_Ang()),
+                                    object.getTouchTime(), object.getAtom1X_Ang(), object.getAtom1Y_Ang(),
+                                    object.getAtom1Z_Ang(),
+                                    object.getAtom1X_pix() + MolCanvas_preferences.get().getValue("text_shift_x_pix"),
+                                    object.getAtom1Y_pix() + MolCanvas_preferences.get().getValue("text_shift_y_pix"), 0, "",
+                                    0, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+                                    object.getAtom12Z_Ang() + MolCanvas_preferences.get().getValue("text_shift_z_Ang"), 0.0f,
+                                    0.0f, object.getDist2D_pix(), 4));
                         }
+                    }
+                    MolCanvas_canvasView.zmat.addAll(MolCanvas_main.generatedLabels);
+                    MolCanvas_main.generatedLabels.clear();
+                    MolCanvas_main.generateAllBonds();
+                    MolCanvas_canvasView.zmat.sort(Comparator.comparing(a -> a.getAtom12Z_Ang()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-                        Intent intent = new Intent(MainActivity.this, MolCanvas_main.class);
-                        startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, MolCanvas_main.class);
+                startActivity(intent);
 
 //                        onFinish();
 //                    }

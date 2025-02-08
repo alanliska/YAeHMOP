@@ -88,6 +88,8 @@ public class MolCanvas_canvasView extends View {
         super.onDraw(molCanvas);
         if (renderMolecule != NOT_SET) {
             if (renderMolecule == TRUE) {
+                // clear the drawing
+                // might improve the performance
                 // background
                 canvas.drawColor(MolCanvas_preferences.get().getIntValue("color_background"));
                 // all objects together
